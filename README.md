@@ -40,3 +40,14 @@ Brainstorming : Résumé des tâches
   -Raspberry Pi 3 Model B+ : pour faire tourner ROS2.
   -Arduino Uno R3 (CH340) : pour la gestion des moteurs et capteurs.
   -LIDAR : pour la détection d’obstacles et la navigation autonome.
+
+# Cablâges et tests 
+
+Test moteur : 
+| MD25   | Arduino Uno R3 |
+| ------ | -------------- |
+| Vcc    | 5V             |
+| Ground | GND            |
+| SDA    | A4             |
+| SCL    | A5             |
+
