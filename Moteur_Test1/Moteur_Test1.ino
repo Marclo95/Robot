@@ -7,45 +7,29 @@
 #include <Wire.h>
 #include <MD25.h>
 
-MD25 md25;
+MD25 md25; // Par défaut utilise l'adresse 0xB0
 
 void setup() {
   Serial.begin(9600);
   Wire.begin();
 
-  md25.setMode(0);              // Mode 0 : 0 = arrière, 128 = stop, 255 = avant
-  md25.setAccelerationRate(5);  // Accélération douce
-  Serial.println("MD25 prêt");
+  // Initialisation de la carte MD25
+  md25.setMode(0);  // Mode 0 : 0 (reverse) → 128 (stop) → 255 (forward)
+  md25.setAccelerationRate(5); // Optionnel : régler l'accélération
+
+  Serial.println("MD25 initialisé");
 }
 
 void loop() {
-  avancer(3000); // Avancer 3 secondes
-  delay(1000);   // Pause 1 seconde
-  reculer(2000); // Reculer 2 secondes
-  delay(3000);   // Pause 3 secondes
-}
+  // Démarrer les moteurs
+  md25.setMotor1Speed(200);  // Vitesse moteur 1
+  md25.setMotor2Speed(200);  // Vitesse moteur 2
+  Serial.println("Moteurs ON");
+  delay(2000);
 
-// Fonction avancer pendant une durée en millisecondes
-void avancer(unsigned long duree) {
-  md25.setMotor1Speed(220); // vitesse avant
-  md25.setMotor2Speed(220);
-  Serial.println("Avancer");
-  delay(duree);
-  arreter();
-}
-
-// Fonction reculer pendant une durée en millisecondes
-void reculer(unsigned long duree) {
-  md25.setMotor1Speed(50);  // vitesse arrière
-  md25.setMotor2Speed(50);
-  Serial.println("Reculer");
-  delay(duree);
-  arreter();
-}
-
-// Fonction stop
-void arreter() {
-  md25.setMotor1Speed(128); // stop
-  md25.setMotor2Speed(128);
-  Serial.println("Stop");
+  // Stopper les moteurs
+  md25.setMotor1Speed(128);  // Stop
+  md25.setMotor2Speed(128);  // Stop
+  Serial.println("Moteurs OFF");
+  delay(2000);
 }

@@ -13,67 +13,59 @@ void setup() {
   Serial.begin(9600);
   Wire.begin();
 
-  md25.setMode(0);              // Mode 0 : 0=reverse, 128=stop, 255=forward
+  md25.setMode(0);              // Mode 0 : 0 = arrière, 128 = stop, 255 = avant
   md25.setAccelerationRate(5);  // Accélération douce
-
-  Serial.println("Contrôle clavier prêt.");
-  Serial.println("a=avancer, r=reculer, g=gauche, d=droite, s=stop");
+  Serial.println("MD25 prêt");
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    char commande = Serial.read();
-    Serial.print("Commande reçue : ");
-    Serial.println(commande);
-
-    switch (commande) {
-      case 'a':
-        avancer();
-        break;
-      case 'r':
-        reculer();
-        break;
-      case 'g':
-        tournerGauche();
-        break;
-      case 'd':
-        tournerDroite();
-        break;
-      case 's':
-        arreter();
-        break;
-      default:
-        Serial.println("Commande inconnue.");
-        break;
-    }
-  }
+  avancer(2000);
+  delay(1000);
+  tournerGauche(1000);
+  delay(1000);
+  reculer(1500);
+  delay(1000);
+  tournerDroite(1000);
+  delay(2000);
 }
 
-// Fonctions de mouvement
-void avancer() {
+// Fonction avancer pendant une durée (ms)
+void avancer(unsigned long duree) {
   md25.setMotor1Speed(220);
   md25.setMotor2Speed(220);
   Serial.println("Avancer");
+  delay(duree);
+  arreter();
 }
 
-void reculer() {
+// Fonction reculer pendant une durée (ms)
+void reculer(unsigned long duree) {
   md25.setMotor1Speed(50);
   md25.setMotor2Speed(50);
   Serial.println("Reculer");
+  delay(duree);
+  arreter();
 }
 
-void tournerGauche() {
-  md25.setMotor1Speed(50);
-  md25.setMotor2Speed(220);
+// Fonction tourner à gauche sur place
+void tournerGauche(unsigned long duree) {
+  md25.setMotor1Speed(50);    // recule moteur gauche
+  md25.setMotor2Speed(220);   // avance moteur droit
   Serial.println("Tourner à gauche");
+  delay(duree);
+  arreter();
 }
 
-void tournerDroite() {
-  md25.setMotor1Speed(220);
-  md25.setMotor2Speed(50);
+// Fonction tourner à droite sur place
+void tournerDroite(unsigned long duree) {
+  md25.setMotor1Speed(220);   // avance moteur gauche
+  md25.setMotor2Speed(50);    // recule moteur droit
   Serial.println("Tourner à droite");
+  delay(duree);
+  arreter();
 }
 
+// Fonction stop
 void arreter() {
   md25.setMotor1Speed(128);
   md25.setMotor2Speed(128);
