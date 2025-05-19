@@ -44,6 +44,7 @@ Brainstorming : Résumé des tâches
 # Cablâges et tests 
 
 1. 🔌 MD25 ↔ Arduino Uno
+
 | MD25 | Arduino Uno |
 | ---- | ----------- |
 | Vcc  | 5V          |
