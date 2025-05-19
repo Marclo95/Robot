@@ -43,15 +43,34 @@ Brainstorming : Résumé des tâches
 
 # Cablâges et tests 
 
-Test moteur : 
-| MD25   | Arduino Uno R3 |
-| ------ | -------------- |
-| Vcc    | 5V             |
-| Ground | GND            |
-| SDA    | A4             |
-| SCL    | A5             |
+1. 🔌 MD25 ↔ Arduino Uno
+| MD25 | Arduino Uno |
+| ---- | ----------- |
+| Vcc  | 5V          |
+| GND  | GND         |
+| SDA  | A4          |
+| SCL  | A5          |
+
+2. 📐 Grove Accelerometer 3-axis (±1.5g) ↔ Arduino Uno
+   
+| Grove Accelerometer | Arduino Uno | Description  |
+| ------------------- | ----------- | ------------ |
+| **SDA**             | A4          | Données I2C  |
+| **SCL**             | A5          | Horloge I2C  |
+| **VCC**             | 5V          | Alimentation |
+| **GND**             | GND         | Masse        |
+
+3. HC-SR04 (GND, VCC, SIG) ↔ Arduino Uno
+   
+| HC-SR04 | Arduino Uno                 | Description                     |
+| ------- | --------------------------- | ------------------------------- |
+| **VCC** | 5V                          | Alimentation                    |
+| **GND** | GND                         | Masse                           |
+| **SIG** | D7 (ou autre pin numérique) | Entrée/Sortie pour trigger/echo |
+
 
 # Connexion physique global
+
 | Liaison                    | Type    | Détail                                         |
 | -------------------------- | ------- | ---------------------------------------------- |
 | **Raspberry Pi ↔ Arduino** | USB     | câble USB (communication série + alimentation) |
@@ -60,6 +79,7 @@ Test moteur :
 | **LIDAR ↔ Raspberry**      | USB     | pour la navigation, en lecture capteur         |
 
 # Rôle de chaque composant
+
 | Composant               | Rôle                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------ |
 | **Raspberry Pi (ROS2)** | Système maître : envoie des commandes via USB série                            |
