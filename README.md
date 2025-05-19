@@ -87,5 +87,5 @@ Brainstorming : Résumé des tâches
 | **MD25**                | Contrôle moteur avec régulation, reçoit commandes de l’Arduino                 |
 | **LIDAR**               | Capteur pour navigation autonome, relié à la Raspberry                         |
 
-
+# Intégration sur le LIDAR
 
