@@ -1,4 +1,4 @@
-# Projet robot autonome
+# PROJET ROBOT AUTONOME
 
 # Etudiants : KITSOUKOU Debora , DJEUNGA Daniela, ASERNE Marc, FARAG David
 
@@ -10,12 +10,12 @@ Brainstorming : Résumé des tâches
 - Choix des composants et autres : David
 
 # Suivi des Contributions et Choix Techniques
-# 1. Structure du robot : ok à imprimer mercredi rdv à 10h avec Mr Papazoglou (Marc)
+# 1. Structure du robot :
   -Responsable : Daniela et David
   -Outil utilisé : Fusion 360
   -Travail effectué : Conception du schéma 3D du robot.
 
-# 2. Choix des moteurs et contrôle : Ok toutes les fonctions sont testés (avancer, reculer, gauche, droite)
+# 2. Choix des moteurs et contrôle :
   -Responsables : Debora, Marc
   -Matériel utilisé : MD25 - Dual 12V 2.8A H Bridge Motor Drive
   -Détails :
@@ -25,16 +25,17 @@ Brainstorming : Résumé des tâches
       -Intègre des fonctions avancées : régulation automatique de vitesse, timeout de sécurité, mode de virage.
       -Compatible avec ROS2 via Arduino.
 
-# 3. Module d’alimentation : ok (test fait avec alimentation de l'école U= 12V et la limite de courant I= 2.5A)
+# 3. Module d’alimentation : 
   -Responsables : Debora, Marc, Daniela, David
-  -Choix technique : Batterie 12V minimum
+  -Choix technique : Batterie 12V minimum pour le MD25 (test fait avec alimentation de l'école U= 12V et la limite de courant I= 2.5A)
   -Remarque : Le MD25 exige un minimum de 9V pour fonctionner correctement.
 
-# 4. Lien entre ROS2 et Arduino (Rajouter a,r,g,d)
+# 4. Lien entre ROS2 et Arduino 
   -Responsable : Debora
   -Objectif : Assurer la communication entre ROS2 (sur Raspberry Pi) et la carte Arduino contrôlant les moteurs via le MD25.
+  
 
-# 5. Choix des composants principaux : Ok c'est fait
+# 5. Choix des composants principaux 
   -Responsable : David
   -Composants choisis :
   -Raspberry Pi 3 Model B+ : pour faire tourner ROS2.
@@ -89,4 +90,32 @@ Brainstorming : Résumé des tâches
 | **LIDAR**               | Capteur pour navigation autonome, relié à la Raspberry                         |
 
 # Intégration sur le LIDAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
